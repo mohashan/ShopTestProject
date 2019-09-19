@@ -1,0 +1,28 @@
+﻿@model List<OfoghKuroshShopProject.Models.ViewModels.OrderVM>
+@{
+	ViewData["Title"] = "لیست سفارشات";
+}
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th class="col-lg-4">تعداد اقلام</th>
+			<th class="col-lg-4">نام کاربری مشتری</th>
+			<th class="col-lg-4">جزئیات</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+
+
+				<td class="col-lg-4">@item.ProductOrdersCount</td>
+				<td class="col-lg-4">@item.Username</td>
+				<td class="col-lg-4">
+					<a href="/ProductOrder/GetProductOfOrder/@item.Id">جزئیات</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

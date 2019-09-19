@@ -1,0 +1,24 @@
+﻿@model List<OfoghKuroshShopProject.Models.ViewModels.ProductOrderVM>
+@{
+	ViewData["Title"] = "لیست اقلام";
+}
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td class="col-lg-6">عنوان</td>
+			<td class="col-lg-6">مقدار</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td class="col-lg-6">@item.ProductName</td>
+				<td class="col-lg-6">@item.Amount</td>
+			</tr>
+		}
+	</tbody>
+
+
+</table>

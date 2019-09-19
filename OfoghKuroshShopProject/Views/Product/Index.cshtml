@@ -1,0 +1,30 @@
+﻿@model List<OfoghKuroshShopProject.Models.ViewModels.ProductVM>
+@{
+	ViewData["Title"] = "لیست کالاها";
+}
+
+	<div class="card-deck">
+
+		@foreach (var item in Model)
+		{
+			
+
+			<div class="card">
+				<img src="~/ProductImage/@item.ImageAddress" class="card-img-top" alt="@item.ProductName">
+				<div class="card-body">
+					<h5 class="card-title">@item.ProductName</h5>
+					<p class="card-text"><a class="btn btn-primary" href="#" onclick="AddToBasket(@item.Id)">اضافه نمودن به سبد خرید</a></p>
+				</div>
+			</div>
+		}
+
+	</div>
+<script>
+	function AddToBasket(Id) {
+		$.post('/Product/AddToBasket', { Id: Id }, (data) => {
+			alert(data);
+			updateBasketLink();
+			
+		})
+	}
+</script>

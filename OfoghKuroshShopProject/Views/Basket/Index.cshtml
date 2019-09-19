@@ -1,0 +1,49 @@
+﻿@model List<OfoghKuroshShopProject.Models.ViewModels.BasketVM>
+@if (Model.Count > 0)
+{
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>
+					نام محصول
+				</td>
+				<td>
+					تعداد
+				</td>
+				<td>
+					
+				</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+
+				<tr>
+					<td class="col-lg-3">
+						@item.ProductName
+					</td>
+					<td>
+						@item.Amount
+					</td>
+					<td>
+						@using (Html.BeginForm("Delete", "Basket", FormMethod.Post))
+						{
+							<input type="hidden" value="@item.Id" name="Id" />
+							<input type="submit" value="حذف از سبد خرید" />
+						}
+					</td>
+				</tr>
+
+			}
+
+		</tbody>
+	</table>
+		<a href="/Basket/RegisterBasket">ثبت سفارش</a>
+		}
+		else
+		{
+		<h1>
+			سبد خرید خالی است :(
+		</h1>
+		}

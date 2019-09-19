@@ -1,0 +1,23 @@
+﻿@model OfoghKuroshShopProject.Models.ViewModels.LoginVM
+@{
+	ViewData["Title"] = "Login";
+}
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+	<div class="container col-lg-6">
+		<div class="row">
+			<div class="col-lg-6">نام کاربری</div>
+			<div class="col-lg-6">
+				@Html.TextBoxFor(c => c.Username, new { @class = "form-control" })
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-6">کلمه عبور</div>
+			<div class="col-lg-6">
+				@Html.TextBoxFor(c => c.Password, new { @class = "form-control", @type = "password" })
+			</div>
+		</div>
+	</div>
+<input type="submit" value="ورود" />
+}
